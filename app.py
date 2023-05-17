@@ -10,8 +10,6 @@ Enter:
 - 'r' to mark a book as read
 - 'd' to delete a book
 - 'f' to find a book by author or title
-- 's' to save the list to a csv file
-- 'u' to upload the last csv file saved
 - 'c' to check if you have read a book
 - 'q' to quit
 
@@ -56,7 +54,7 @@ while True:
 
     elif user_choice == 'f':
         # Prompt the user to search for a book
-        search_by = input("Search by 'title', 'author', or 'read': ")
+        search_by = input("Search by 'title' or 'author'")
         search_term = input("Enter what you are looking for: ")
         search_results = bookstore.search_books(search_by, search_term)
         if search_results:
@@ -73,12 +71,6 @@ while True:
             print("You have read this book.")
         else:
             print("You have not read this book.")
-
-    elif user_choice == 's':
-        bookstore.save_books_to_csv("books.csv")
-
-    elif user_choice == 'u':
-        bookstore.load_books_from_csv("books.csv")
 
     elif user_choice == 'q':
         break
